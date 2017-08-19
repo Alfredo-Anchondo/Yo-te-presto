@@ -1,0 +1,12 @@
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "welcome";
+@import "font-awesome";
+
+.alert{
+  color:red;
+}
+.notice{
+  color:green;
+}

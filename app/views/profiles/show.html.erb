@@ -1,0 +1,142 @@
+<!-- begin row -->
+<div class="row">
+  <!-- begin col-md-12 -->
+  <div class="col-md-12">
+    <div class="invoice">
+      <div class="invoice-content">
+        <div class="table-responsive">
+          <table class="table table-invoice">
+            <thead>
+              <tr>
+                <td colspan="2">
+                  <h4><%= t("details_of", model: t("activerecord.models.profile").downcase) %></h4>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.first_name") %>: <br />
+                    <small><%= @profile.first_name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.second_name") %>: <br />
+                    <small><%= @profile.second_name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.second_last_name") %>: <br />
+                    <small><%= @profile.second_last_name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.first_last_name") %>: <br />
+                    <small><%= @profile.first_last_name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.birth_date") %>: <br />
+                    <small><%= @profile.birth_date %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.curp") %>: <br />
+                    <small><%= @profile.curp %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.rfc") %>: <br />
+                    <small><%= @profile.rfc %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.gender") %>: <br />
+                    <small><%= @profile.gender %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.birth_state") %>: <br />
+                    <small><%= @profile.birth_state %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.phone_number") %>: <br />
+                    <small><%= @profile.phone_number %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.email") %>: <br />
+                    <small><%= @profile.email %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.provider") %>: <br />
+                    <small><%= @profile.provider %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.uid") %>: <br />
+                    <small><%= @profile.uid %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.name") %>: <br />
+                    <small><%= @profile.name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.image") %>: <br />
+                    <small><%= @profile.image %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.profile.created_at") %>: <br />
+                    <small><%= @profile.created_at %></small>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="invoice-footer text-muted"></div>
+    </div>
+  </div>
+  <!-- end col-md-12 -->
+</div>
+<!-- end row -->
+
+<!-- begin row -->
+<div class="row">
+  <div class="col-md-12">
+      <%= link_to edit_profile_path(@profile), :class => "btn btn-default" do %>
+        <i class="icon-pencil"></i>
+        <%= t("actions.edit") %>
+      <% end %>
+      <%= link_to @profile, method: :delete, data: { confirm: t("are_you_sure?", model: t("activerecord.models.profile").downcase) }, :class => "btn btn-danger" do %>
+        <i class="icon-trash"></i>
+        <%= t("actions.delete") %>
+      <% end %>
+      <%= link_to profiles_path, :class => "btn btn-default" do %>
+        <i class="icon-chevron-left"></i>
+        <%= t("actions.back") %>
+    <% end %>
+  </div>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->

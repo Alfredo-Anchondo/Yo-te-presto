@@ -1,0 +1,122 @@
+<%= form_for(@profile, :html => { :class => "form-horizontal" }) do |f| %>
+<% if @profile.errors.any? %>
+<div id="error_explanation">
+  <% if @profile.errors.count == 1 %>
+  <h5><%= t("activerecord.errors.template.header.one", model: t("activerecord.models.profile")) %></h5>
+  <% else %>
+  <h5><%= t("activerecord.errors.template.header.other", model: t("activerecord.models.profile"), :count => @profile.errors.count) %></h5>
+  <% end %>
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- begin col-md-6 -->
+<div class="col-md-6">
+              <div class="form-group">
+          <%= f.label :first_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :first_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :second_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :second_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :second_last_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :second_last_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :first_last_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :first_last_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :birth_date, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.date_select :birth_date, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :curp, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :curp, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :rfc, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :rfc, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :gender, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :gender, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :birth_state, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :birth_state, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :phone_number, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :phone_number, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :email, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :email, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :provider, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :provider, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :uid, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :uid, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :image, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_area :image, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+<!-- end col-md-6 -->
+
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="col-md-12 text-center">
+      <%= f.button :class => "submit btn btn-success", :data => { :disable_with => t("actions.saving") } do %>
+      <i class='icon-ok'></i>
+      <%= t("actions.save") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
