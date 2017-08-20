@@ -1,0 +1,78 @@
+<div class="row">
+  <!-- begin col-12 -->
+  <div class="col-md-12">
+    <!-- begin panel -->
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="row">
+          <h3 style="margin-left:15px"><%= t("activerecord.models.references") %></h3>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table id="data-table" class="table table-bordered table-hover table-striped nowrap" width="100%">
+            <thead>
+              <tr>
+                                  <th><%= t("activerecord.attributes.reference.first_name") %></th>
+                                  <th><%= t("activerecord.attributes.reference.second_name") %></th>
+                                  <th><%= t("activerecord.attributes.reference.first_last_name") %></th>
+                                  <th><%= t("activerecord.attributes.reference.second_last_name") %></th>
+                                  <th><%= t("activerecord.attributes.reference.cell_phone_number") %></th>
+                                  <th><%= t("activerecord.attributes.reference.requisition") %></th>
+                                <th style="width: 155px"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @references.each do |reference| %>
+              <tr>
+                                  <td><%= reference.first_name %></td>
+                                  <td><%= reference.second_name %></td>
+                                  <td><%= reference.first_last_name %></td>
+                                  <td><%= reference.second_last_name %></td>
+                                  <td><%= reference.cell_phone_number %></td>
+                                  <td><%= reference.requisition %></td>
+                                <td class="action-link">
+
+                    <%= link_to reference, :class => "btn btn-default", :title => t("actions.show") do %>
+                      <i class="fa fa-eye"></i>
+                    <% end %>
+
+                    <%= link_to edit_reference_path(reference), :class => "btn btn-info", :title => t("actions.edit") do %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+
+                    <%= link_to reference, :method => :delete, :data => { :confirm => t("are_you_sure?", model: t("activerecord.models.reference").downcase) }, :class => "btn btn-danger", :title => t("actions.delete") do %>
+                      <i class="fa fa-trash"></i>
+                    <% end %>
+
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center">
+        
+        </div>
+      </div>
+      <!-- end panel-body -->
+    </div>
+    <!-- end panel -->
+  </div>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->
+
+<!-- begin row -->
+<div class="row">
+  <div class="col-md-12">
+
+      <%= link_to new_reference_path, :class => "btn btn-default" do %>
+        <i class="icon-plus-sign-alt"></i>
+        <%= t("actions.new") %>
+      <% end %>
+  </div>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->

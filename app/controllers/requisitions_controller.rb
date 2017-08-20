@@ -69,6 +69,6 @@ class RequisitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def requisition_params
-      params.require(:requisition).permit(:income, :address_years, :company_years, :marital_status, :requested_amount, :payment_terms, :bank, :comment, :company_name, :company_phone_number, :dependents_number, :company_position, :has_sgmm, :has_imss, :has_car, :profile_id)
+      params.require(:requisition).permit(:income, :address_years, :company_years, :marital_status, :requested_amount, :payment_terms, :bank, :comment, :company_name, :company_phone_number, :dependents_number, :company_position, :has_sgmm, :has_imss, :has_car, :profile_id, references_attributes: [:first_name, :second_name, :first_last_name, :second_last_name, :cell_phone_number, :id, :_destroy])
     end
 end

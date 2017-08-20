@@ -1,0 +1,38 @@
+<div class="nested-fields references-div">
+  <hr>
+  <div class="col-md-4">
+    <%= f.label "Nombre" %>
+    <%= f.text_field :first_name,:class => "form-control", required: "true" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label "Segundo Nombre" %>
+    <%= f.text_field :second_name,:class => "form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label "Apellido Paterno" %>
+    <%= f.text_field :first_last_name,:class => "form-control", required: "true" %>
+  </div>
+  <div class="clearfix">
+
+  </div><br>
+  <div class="col-md-4">
+    <%= f.label "Apellido Materno" %>
+    <%= f.text_field :second_last_name,:class => "form-control", required: "true" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.label "Numero celular" %>
+    <%= f.telephone_field :cell_phone_number,:class => "form-control", required: "true" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= f.check_box :_destroy %>
+
+    <%= link_to_remove_association "Quitar referencia", f, class: "btn btn-danger" %>
+  </div>
+<div class="clearfix">
+
+</div><hr>
+
+</div>

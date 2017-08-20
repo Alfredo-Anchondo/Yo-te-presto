@@ -1,124 +1,113 @@
+<style media="screen">
+  body{
+    background-image: url(<%= asset_path 'aqua.svg' %>);
+  }
+</style>
 <!-- begin row -->
 <div class="row">
+  <h2 style="text-align:center">Detalles de tu solicitud</h2><hr>
   <!-- begin col-md-12 -->
   <div class="col-md-12">
-    <div class="invoice">
-      <div class="invoice-content">
-        <div class="table-responsive">
-          <table class="table table-invoice">
-            <thead>
-              <tr>
-                <td colspan="2">
-                  <h4><%= t("details_of", model: t("activerecord.models.requisition").downcase) %></h4>
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.income") %>: <br />
-                    <small><%= @requisition.income %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.address_years") %>: <br />
-                    <small><%= @requisition.address_years %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.company_years") %>: <br />
-                    <small><%= @requisition.company_years %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.marital_status") %>: <br />
-                    <small><%= @requisition.marital_status %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.requested_amount") %>: <br />
-                    <small><%= @requisition.requested_amount %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.payment_terms") %>: <br />
-                    <small><%= @requisition.payment_terms %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.bank") %>: <br />
-                    <small><%= @requisition.bank %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.comment") %>: <br />
-                    <small><%= @requisition.comment %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.company_name") %>: <br />
-                    <small><%= @requisition.company_name %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.company_phone_number") %>: <br />
-                    <small><%= @requisition.company_phone_number %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.dependents_number") %>: <br />
-                    <small><%= @requisition.dependents_number %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.company_position") %>: <br />
-                    <small><%= @requisition.company_position %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.has_sgmm") %>: <br />
-                    <small><%= @requisition.has_sgmm %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.has_imss") %>: <br />
-                    <small><%= @requisition.has_imss %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.has_car") %>: <br />
-                    <small><%= @requisition.has_car %></small>
-                  </td>
-                </tr>
-                              <tr>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.created_at") %>: <br />
-                    <small><%= @requisition.created_at %></small>
-                  </td>
-                  <td>
-                    <%= t("activerecord.attributes.requisition.profile_id") %>: <br />
-                    <small><%= @requisition.profile_id %></small>
-                  </td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="invoice-footer text-muted"></div>
+    <div class="col-md-3">
+      <b>Ingresos:</b> <br />
+      <small><%= @requisition.income %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Tiempo viviendo en su domicilio:</b> <br />
+      <small><%= @requisition.address_years %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Tiempo en la empresa actual:</b> <br />
+      <small><%= @requisition.company_years %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Estado civil:</b><br />
+      <small><%= @requisition.marital_status %></small>
+    </div>
+    <div class="clearfix"></div><br>
+    <div class="col-md-3">
+      <b>Cantidad solicitada:</b> <br />
+      <small><%= @requisition.requested_amount %></small>
+    </div>
+    <div class="col-md-3">
+    <b>Terminos de pago:</b> <br />
+      <small><%= @requisition.payment_terms %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Banco:</b> <br />
+      <small><%= @requisition.bank %></small>
+    </div>
+    <div class="col-md-3">
+    <b>Detalles de la solicitud:</b> <br />
+      <small><%= @requisition.comment %></small>
+    </div>
+      <div class="clearfix"></div><br>
+    <div class="col-md-3">
+      <b>Nombre de la compañia:</b> <br />
+      <small><%= @requisition.company_name %></small>
+    </div>
+    <div class="col-md-3">
+    <b>Numero de telefono de la compañia:</b> <br />
+      <small><%= @requisition.company_phone_number %></small>
+    </div>
+    <div class="col-md-3">
+    <b>Numero de dependientes economicamente:</b> <br />
+      <small><%= @requisition.dependents_number %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Puesto en la compañia:</b> <br />
+      <small><%= @requisition.company_position %></small>
+    </div>
+      <div class="clearfix"></div><br>
+    <div class="col-md-3">
+    <b>Cuenta con Seguro de Gastos Mayores:</b> <br />
+      <small><%= @requisition.has_sgmm %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Cuenta con IMSS:</b>: <br />
+      <small><%= @requisition.has_imss %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Cuenta con Vehiculo:</b> <br />
+      <small><%= @requisition.has_car %></small>
+    </div>
+    <div class="col-md-3">
+      <b>Fecha de creacion:</b> <br />
+      <small><%= @requisition.created_at %></small>
+    </div>
+  <div class="clearfix"></div><hr>
+    <h4 style="text-align:center; font-weight:800;">Referencias Personales</h4>
+    <br>
+    <% for reference in @requisition.references%>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-2">
+      <b>Primer Nombre:</b> <br />
+      <small><%= reference.first_name %></small>
+    </div>
+    <div class="col-md-2">
+      <b>Segundo Nombre:</b> <br />
+      <small><%= reference.second_name %></small>
+    </div>
+    <div class="col-md-2">
+      <b>Apellido Paterno:</b> <br />
+      <small><%= reference.first_last_name %></small>
+    </div>
+    <div class="col-md-2">
+      <b>Apellido Materno:</b> <br />
+      <small><%= reference.second_last_name %></small>
+    </div>
+    <div class="col-md-2">
+      <b>Numero telefonico:</b> <br />
+      <small><%= reference.second_last_name %></small>
+    </div>
+    <div class="clearfix">
+
+    </div><br>
+
+    <% end %>
+    <hr>
     </div>
   </div>
   <!-- end col-md-12 -->
@@ -128,23 +117,10 @@
 <!-- begin row -->
 <div class="row">
   <div class="col-md-12">
-
-      <%= link_to edit_requisition_path(@requisition), :class => "btn btn-default" do %>
-        <i class="icon-pencil"></i>
-        <%= t("actions.edit") %>
-      <% end %>
-
-      <%= link_to @requisition, method: :delete, data: { confirm: t("are_you_sure?", model: t("activerecord.models.requisition").downcase) }, :class => "btn btn-danger" do %>
-        <i class="icon-trash"></i>
-        <%= t("actions.delete") %>
-      <% end %>
-
-      <%= link_to requisitions_path, :class => "btn btn-default" do %>
-        <i class="icon-chevron-left"></i>
-        <%= t("actions.back") %>
-      <% end %>
+    <h3 style="text-align:center;"><a class="btn btn-default" href="/">Volver a la pagina principal</a></h3>
 
   </div>
   <!-- end col-12 -->
 </div>
+<br><br><br>
 <!-- end row -->

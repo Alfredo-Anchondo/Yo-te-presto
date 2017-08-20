@@ -1,3 +1,8 @@
+<style media="screen">
+  body{
+    background-image: url(<%= asset_path 'greenbg.jpg' %>);
+  }
+</style>
 <%= form_for(@requisition, :html => { :class => "form-horizontal" }) do |f| %>
 <% if @requisition.errors.any? %>
 <div id="error_explanation">
@@ -43,12 +48,12 @@
   <div class="form-group">
     <%= f.label "Estado civil", :class => "col-md-3" %>
     <div class="col-md-9">
-      <select class="form-control" name="requisition_marital_status" required>
+      <select class="form-control" name="requisition[marital_status]" id="requisition_marital_status" required>
         <option value="Soltero">Soltero</option>
-        <option value="Soltero">Casado</option>
-        <option value="Soltero">Divorciado</option>
-        <option value="Soltero">Viudo</option>
-        <option value="Soltero">Union Libre</option>
+        <option value="Casado">Casado</option>
+        <option value="Divorciado">Divorciado</option>
+        <option value="Viudo">Viudo</option>
+        <option value="Union Libre">Union Libre</option>
       </select>
     </div>
   </div>
@@ -85,13 +90,13 @@
         <div class="form-group">
           <%= f.label "Tiempo viviendo en su domicilio", :class => "col-md-7" %>
           <div class="col-md-5">
-            <select class="form-control" name="requisition_address_years" required>
-              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-              <option value="De 6 a 9 meses">De 6 a 9 meses</option>
-              <option value="De 9 a 12 meses">De 9 a 12 meses</option>
-              <option value="De 1 a 2 años">De 1 a 2 años</option>
-              <option value="De 2 a 3 años">De 2 a 3 años</option>
-              <option value="De 3 0 mas años">De 3 o mas años</option>
+            <select class="form-control" name="requisition[address_years]" id="requisition_address_years" required>
+              <option value=0>Menos de un año</option>
+              <option value=1>1 año</option>
+              <option value=2>2 años</option>
+              <option value=3>3 años</option>
+              <option value=4>4 años</option>
+              <option value=5>5 años o mas</option>
             </select>
           </div>
         </div>
@@ -99,7 +104,7 @@
         <div class="form-group">
             <%= f.label "Posicion laboral", :class => "col-md-5" %>
           <div class="col-md-7">
-            <select class="form-control" name="requisition_company_position" required>
+            <select class="form-control" id="requisition_company_position" name="requisition[company_position]" required>
               <option value="Empleado">Empleado</option>
               <option value="Supervisor">Tecnico</option>
               <option value="Supervisor">Supervisor</option>
@@ -128,13 +133,13 @@
         <div class="form-group">
           <%= f.label "Tiempo trabajando en la empresa actual", :class => "col-md-7" %>
           <div class="col-md-5">
-            <select class="form-control" name="requisition_company_years" required>
-              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
-              <option value="De 6 a 9 meses">De 6 a 9 meses</option>
-              <option value="De 9 a 12 meses">De 9 a 12 meses</option>
-              <option value="De 1 a 2 años">De 1 a 2 años</option>
-              <option value="De 2 a 3 años">De 2 a 3 años</option>
-              <option value="De 3 0 mas años">De 3 o mas años</option>
+            <select class="form-control" id="requisition_company_years" name="requisition[company_years]" required>
+              <option value=0>Menos de 1 año</option>
+              <option value=1>1 año</option>
+              <option value=2>2 años</option>
+              <option value=3>3 años</option>
+              <option value=4>4 años</option>
+              <option value=5>5 años o mas</option>
             </select>
           </div>
         </div>
@@ -142,11 +147,11 @@
         <div class="form-group">
           <%= f.label "Terminos de pago", :class => "col-md-5" %>
           <div class="col-md-7">
-            <select class="form-control" name="requisition_payment_terms" required>
-              <option value="De 3 a 6 meses">Pago Unico</option>
-              <option value="De 6 a 9 meses">Pago a Meses</option>
-              <option value="De 9 a 12 meses">Pagos Fijos</option>
-              <option value="De 1 a 2 años">A pagos chiquitos</option>
+            <select class="form-control" id="requisition_payment_terms" name="requisition[payment_terms]" required>
+              <option value="Pago Unico">Pago Unico</option>
+              <option value="Pago a Meses">Pago a Meses</option>
+              <option value="Pagos Fijos">Pagos Fijos</option>
+              <option value="A pagos Chiquitos">A pagos chiquitos</option>
             </select>
           </div>
         </div>
@@ -158,13 +163,26 @@
         </div>
       </div>
 <!-- end col-md-6 -->
+
+  <div class="col-md-12">
+    <hr>
+    <h4 style="text-align:center">Referencias Personales</h4><hr>
+    <h5 style="text-align:center">Por ultimo necesitamos que nos brindes almenos 3 referencias personales obligatorias, se pueden dar
+    las referencias necesarios solo deben de ser mas de 3.</h5>
+    <%= f.fields_for :references do |reference| %>
+      <%= render 'reference_fields', f: reference %>
+    <% end %>
+    <div class="links">
+      <h5 style="text-align:center"> <%= link_to_add_association 'Agregar referencia', f, :references, class: "btn btn-info" %></h5>
+      </div>
+  </div>
   <div class="clearfix">
 
   </div><hr>
 <div class="col-md-12">
   <div class="form-group">
     <div class="col-md-12 text-center">
-      <%= f.button :class => "submit btn btn-success", :data => { :disable_with => t("actions.saving") } do %>
+      <%= f.button :class => "submit btn btn-success submit-form-x", :data => { :disable_with => t("actions.saving") } do %>
       <i class='icon-ok'></i>
       Crear Peticion
       <% end %>
@@ -172,3 +190,65 @@
   </div>
 </div>
 <% end %>
+
+<script type="text/javascript">
+  $(".submit-form-x").click(function(e){
+    e.preventDefault();
+    if( $(".references-div").length >= 3){
+      $("form").submit()
+    }else{
+      alert("te faltan referencias")
+    }
+  })
+
+
+           $(function () {
+
+             $("#requisition_requested_amount").keydown(function (e) {
+      // Allow: backspace, delete, tab, escape, enter and .
+      if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+           // Allow: Ctrl+A, Command+A
+          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+           // Allow: home, end, left, right, down, up
+          (e.keyCode >= 35 && e.keyCode <= 40)) {
+               // let it happen, don't do anything
+               return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+          e.preventDefault();
+      }
+  });
+             $("#requisition_dependents_number").keydown(function (e) {
+      // Allow: backspace, delete, tab, escape, enter and .
+      if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+           // Allow: Ctrl+A, Command+A
+          (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+           // Allow: home, end, left, right, down, up
+          (e.keyCode >= 35 && e.keyCode <= 40)) {
+               // let it happen, don't do anything
+               return;
+      }
+      // Ensure that it is a number and stop the keypress
+      if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+          e.preventDefault();
+      }
+  });
+
+               $("#requisition_income").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A, Command+A
+            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+           });
+       </script>

@@ -13,6 +13,16 @@
     background-image: url(<%= asset_path 'greenbg.jpg' %>);
   }
 </style>
+<% if current_profile.requisition%>
+  <% if current_profile.requisition.references.length >= 3%>
+    <h2 style="text-align:center; color:white; font-weight:800;">Felicidades tu solicitud se completo correctamente</h2>
+    <hr><h4 style="text-align:center; color:black;">Ahora solo debes de esperar nosotros nos pondremos en contacto contigo dentro de poco para darte
+    respuesta sobre tu solicitud.</h4>
+
+    <h5 style="text-align:center"><a class="btn btn-primary" href="/requisitions/<%= current_profile.requisition.id %>"> Ver mi peticion</a></h5>
+
+  <% end %>
+<% else%>
 <div class="container">
   <div class="row" style="text-align:center">
     <h3 style="color:white">Bienvenido <%= current_profile.name %></h3>
@@ -65,7 +75,7 @@
                       <div class="form-group">
               <%= f.label "Fecha de nacimiento", :class => "col-md-3" %>
               <div class="col-md-9">
-                <%= f.date_select :birth_date, :class => "form-control", :required => true %>
+                <%= f.date_select :birth_date, :class => "form-control", :start_year => 1900, :required => true %>
               </div>
             </div>
 
@@ -75,7 +85,7 @@
       <div class="form-group">
         <%= f.label "Telefono", :class => "col-md-3" %>
         <div class="col-md-9">
-          <%= f.phone_field :phone_number, :class => "form-control", :required => true %>
+          <%= f.telephone_field :phone_number, :class => "form-control", :required => true %>
         </div>
       </div>
       <div class="form-group">
@@ -97,9 +107,42 @@
         </div>
         </div>
               <div class="form-group">
-        <%= f.label "Estado civil", :class => "col-md-3" %>
+        <%= f.label "Estado de nacimiento", :class => "col-md-3" %>
         <div class="col-md-9">
-        <%= f.text_field :birth_state, :class => "form-control", :required => true %>
+          <select name="profile_birth_state">
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California2">Baja California</option>
+            <option value=">Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+            <option value="Colima">Colima</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="Distrito Federal">Distrito Federal</option>
+            <option value="Durango">Durango</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="México">México</option>
+            <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+            </select>
         </div>
         </div>
     </div>
@@ -117,7 +160,6 @@
 
   </div>
 </div>
-<%= current_profile.email %>
 <script type="text/javascript">
            $(function () {
                $("#profile_phone_number").keydown(function (e) {
@@ -137,3 +179,5 @@
     });
            });
        </script>
+
+<%end%>

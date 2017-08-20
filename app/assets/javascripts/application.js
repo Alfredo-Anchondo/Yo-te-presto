@@ -18,6 +18,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require cocoon
 
 $(document).ready(function(){
   $(".alert" ).fadeOut(6000);

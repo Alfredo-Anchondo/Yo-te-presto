@@ -1,0 +1,68 @@
+<%= form_for(@reference, :html => { :class => "form-horizontal" }) do |f| %>
+<% if @reference.errors.any? %>
+<div id="error_explanation">
+  <% if @reference.errors.count == 1 %>
+  <h5><%= t("activerecord.errors.template.header.one", model: t("activerecord.models.reference")) %></h5>
+  <% else %>
+  <h5><%= t("activerecord.errors.template.header.other", model: t("activerecord.models.reference"), :count => @reference.errors.count) %></h5>
+  <% end %>
+  <ul>
+    <% @reference.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- begin col-md-6 -->
+<div class="col-md-6">
+              <div class="form-group">
+          <%= f.label :first_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :first_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :second_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :second_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :first_last_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :first_last_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :second_last_name, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :second_last_name, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :cell_phone_number, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :cell_phone_number, :class => "form-control" %>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label :requisition_id, :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.collection_select(:requisition_id, @requisitions_select, :id, :select_display, { :include_blank => false, :prompt => true }, required: true, :class => "form-control") %>
+          </div>
+        </div>
+      </div>
+<!-- end col-md-6 -->
+
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="col-md-12 text-center">
+      <%= f.button :class => "submit btn btn-success", :data => { :disable_with => t("actions.saving") } do %>
+      <i class='icon-ok'></i>
+      <%= t("actions.save") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
