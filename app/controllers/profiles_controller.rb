@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
     @requisition = Requisition.new
     respond_to do |format|
       if @profile.update(profile_params)
-        if logger.debug current_profile.requisition_pend.count > 0
+        if current_profile.requisition_pend.count > 0
           format.html { redirect_to "/requisitions/"+current_profile.requisition_pend[0].id.to_s+"/edit", notice: 'Los datos se actualizaron correctamente' }
           format.json { render :new, status: :ok, location: @requisition }
         else
