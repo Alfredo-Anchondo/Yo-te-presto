@@ -2,6 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(profile)
+    can [:edit, :update, :show, ], Profile, :id => profile.id
+    can [:edit, :update, :show, ], Requisition, :profile_id => profile.id
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

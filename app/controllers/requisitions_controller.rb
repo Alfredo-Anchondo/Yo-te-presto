@@ -1,5 +1,6 @@
 class RequisitionsController < ApplicationController
   before_action :set_requisition, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /requisitions
   # GET /requisitions.json

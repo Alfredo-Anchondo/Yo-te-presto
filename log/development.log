@@ -8240,3 +8240,1338 @@ Processing by RequisitionsController#show as HTML
 Completed 200 OK in 69ms (Views: 65.8ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:00:28 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.5ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.4ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 689ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `destroy_user_session_path' for #<#<Class:0x007f56dac5ad68>:0x007f56da3fd620>
+Did you mean?  destroy_session_path
+               destroy_profile_session_path):
+    14: 
+    15:     <%= yield %>
+    16: 
+    17:   <%= link_to('Cerrar sesion', destroy_user_session_path, method: :delete) %>   
+    18:   </body>
+    19: </html>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__1072159680487391855_70005502781620'
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:00:50 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.5ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 64ms (Views: 59.2ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/profiles/sign_out" for 127.0.0.1 at 2017-08-20 12:00:53 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6nsWisIP/NhaOIjNupPnFnQmf0GBO5eBWFTLVy+4D7+q95PdhTVzEEUP+zi1kA5XKdH0vlu+DeLwimukokEZZA=="}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:00:55 -0500
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:00:55 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 77ms (Views: 75.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-20 12:00:58 -0500
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-20 12:00:59 -0500
+Started GET "/profiles/auth/facebook/callback?code=AQAP7tU1X6xSqeRkNe_YyEtRSuxzFOJ_WxXKipJ_Y6IKxsiLXiJX_57leFgZfcmjoFWijk0Gc6-4olRcj_f7X7dCubiqJFW3-xDaTI_yKpvIrztDqR8pOEeIR1RL9eiUw6uhS7JM2i8D8yDPUmiBtiCKrFLSlZRJJ8G47Ceub3nchGwaE3GeruO6K-SD9F1qxwgC_Dl2OL8ElLVlauCFLjfoEB3EzbtwPLwT4Gj6lKuEqoNBMCC_idRSpsAgQ4eC91R_zE5NObavmQKzkJ9_Y1LI7QL8nDqoluQRUVWMXxp2GJgDVOIXvWAcSnn9LmWNipY&state=47e499dfb6a08f48b4e513b3eb4df129e488f269f1086dff" for 127.0.0.1 at 2017-08-20 12:00:59 -0500
+Processing by Profiles::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAP7tU1X6xSqeRkNe_YyEtRSuxzFOJ_WxXKipJ_Y6IKxsiLXiJX_57leFgZfcmjoFWijk0Gc6-4olRcj_f7X7dCubiqJFW3-xDaTI_yKpvIrztDqR8pOEeIR1RL9eiUw6uhS7JM2i8D8yDPUmiBtiCKrFLSlZRJJ8G47Ceub3nchGwaE3GeruO6K-SD9F1qxwgC_Dl2OL8ElLVlauCFLjfoEB3EzbtwPLwT4Gj6lKuEqoNBMCC_idRSpsAgQ4eC91R_zE5NObavmQKzkJ9_Y1LI7QL8nDqoluQRUVWMXxp2GJgDVOIXvWAcSnn9LmWNipY", "state"=>"47e499dfb6a08f48b4e513b3eb4df129e488f269f1086dff"}
+  [1m[36mProfile Load (100.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."provider" = $1 AND "profiles"."uid" = $2 ORDER BY "profiles"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10212387806145721"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.2ms)[0m  [1m[33mUPDATE "profiles" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "profiles"."id" = $4[0m  [["current_sign_in_at", "2017-08-20 17:01:00.778360"], ["sign_in_count", 2], ["updated_at", "2017-08-20 17:01:00.779927"], ["id", 12]]
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 160ms (ActiveRecord: 151.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:01:00 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.2ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:01:20 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.3ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.1ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/layouts/application.html.erb:17: syntax error, unexpected ',', expecting ')'
+ession_path, method: :delete), class: "btn btn-danger" );@ou
+                              ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:01:28 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.3ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.1ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/layouts/application.html.erb:17: syntax error, unexpected ',', expecting ')'
+ession_path, method: :delete), class: "btn btn-danger" );@ou
+                              ^):
+  
+app/views/layouts/application.html.erb:17: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:01:57 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.4ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 64ms (Views: 60.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:19 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.2ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 71ms (Views: 66.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/profiles/sign_out" for 127.0.0.1 at 2017-08-20 12:02:22 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KCjw677f5cbZQvtRFVxiYfUkJDBeMpmCAdwpzvLzV/dDUsvirdj4Diw2SAQsXMqfLEB4lpnifsRROkvOE+YCmg=="}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:22 -0500
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:02:22 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 67ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:02:27 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/profiles/sign_out" for 127.0.0.1 at 2017-08-20 12:02:29 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uyXoYAEmfJvF9lag2iSd5iOiB8HaRZUyAd6FIGIQj1eZR4zcTa3hFozJUJxwUSp8yQBAFnF4/JDVW70B2q7Itg=="}
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:29 -0500
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:02:29 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/profiles/sign_out" for 127.0.0.1 at 2017-08-20 12:02:31 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C9GlcFS/jRiOcvqrPj25xi/XM4Ye9tRLnJYYmXNK7RIps8HMGDQQlcdN/JeUSA5cxXV0UbXLvelIEyC4y/Sq8w=="}
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:31 -0500
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:02:31 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 69ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-20 12:02:43 -0500
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-20 12:02:43 -0500
+Started GET "/profiles/auth/facebook/callback?code=AQDzDE-CTmevkeS0iIxPJfs90KkVc1DzKffwZdlPq_Y-_y2A8HyCGmek5gwkYvctoKW0Tyli5IXBjlxmCp0XCeRV3T40YTNSu54h7dXw3sfv5e3raD6d3SBvWFEIVzoOjmFpE7Tv9ZYU6E7ZeOEt-XljYC6yOoKRPjY-JJLe6bbap2fhIn4ynpU4XE7krbi0hJ1A0mYwCuxUFnTlopAA1PliD1Xg510JXR89NXX1vPRs4mRoAbAlJqE0DBo_D_VdrNPMqUzq7VAZ1h0Z9Oz08ZzqYEwY0goFeh1viSQ0SF061mbLmPULA5V5ra6KmTWTSkE&state=f02e3a99632d4bb720a08eb5ea554a2644b866fdb5a6be6c" for 127.0.0.1 at 2017-08-20 12:02:44 -0500
+Processing by Profiles::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDzDE-CTmevkeS0iIxPJfs90KkVc1DzKffwZdlPq_Y-_y2A8HyCGmek5gwkYvctoKW0Tyli5IXBjlxmCp0XCeRV3T40YTNSu54h7dXw3sfv5e3raD6d3SBvWFEIVzoOjmFpE7Tv9ZYU6E7ZeOEt-XljYC6yOoKRPjY-JJLe6bbap2fhIn4ynpU4XE7krbi0hJ1A0mYwCuxUFnTlopAA1PliD1Xg510JXR89NXX1vPRs4mRoAbAlJqE0DBo_D_VdrNPMqUzq7VAZ1h0Z9Oz08ZzqYEwY0goFeh1viSQ0SF061mbLmPULA5V5ra6KmTWTSkE", "state"=>"f02e3a99632d4bb720a08eb5ea554a2644b866fdb5a6be6c"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."provider" = $1 AND "profiles"."uid" = $2 ORDER BY "profiles"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10212387806145721"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.4ms)[0m  [1m[33mUPDATE "profiles" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "profiles"."id" = $5[0m  [["current_sign_in_at", "2017-08-20 17:02:44.401593"], ["last_sign_in_at", "2017-08-20 17:01:00.778360"], ["sign_in_count", 3], ["updated_at", "2017-08-20 17:02:44.402455"], ["id", 12]]
+  [1m[35m (10.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 25.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:44 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.2ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 63ms (Views: 60.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/requisitions/5" for 127.0.0.1 at 2017-08-20 12:02:47 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  [1m[36mReference Load (0.3ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered requisitions/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 64ms (Views: 61.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:50 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+  [1m[36mReference Load (0.2ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered welcome/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 79ms (Views: 74.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/profiles/sign_out" for 127.0.0.1 at 2017-08-20 12:02:53 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"L7ciKExIBOUDiYaD1wTrd3rjlgylwoJaCh5yyTGsAiLtuqvKgUsmIi7pnSyvitcpQDUlKNVD05n5AggeadUjhQ=="}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:02:53 -0500
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-20 12:02:53 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 66ms (Views: 64.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profiles/sign_up" for 127.0.0.1 at 2017-08-20 12:03:45 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 418ms (Views: 102.5ms | ActiveRecord: 279.6ms)
+
+
+Started POST "/profiles" for 127.0.0.1 at 2017-08-20 12:04:03 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WzjIJ9YKIAbSbjsPHYyVt9GVeyzTwqHuwEU3xkdPfSXS4IjD/TA615//hx8MkWR1V/k05LlG/IT8TNz7+Md2xg==", "profile"=>{"email"=>"fsakdjhfkjasdf@asdasd.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Exists (61.6ms)[0m  [1m[34mSELECT  1 AS one FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "fsakdjhfkjasdf@asdasd.com"], ["LIMIT", 1]]
+  [1m[35mSQL (139.3ms)[0m  [1m[32mINSERT INTO "profiles" ("email", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "fsakdjhfkjasdf@asdasd.com"], ["created_at", "2017-08-20 17:04:04.215212"], ["updated_at", "2017-08-20 17:04:04.215212"], ["encrypted_password", "$2a$11$4vlxaEaYWzslvNj4JtiL9Oo4fWKmkfWv/yfP3e79NVi8e2f67m67y"]]
+  [1m[35m (89.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "profiles" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "profiles"."id" = $7[0m  [["updated_at", "2017-08-20 17:04:04.447139"], ["sign_in_count", 1], ["current_sign_in_at", "2017-08-20 17:04:04.446364"], ["last_sign_in_at", "2017-08-20 17:04:04.446364"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["id", 13]]
+  [1m[35m (41.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 909ms (ActiveRecord: 332.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-20 12:04:04 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 13], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (70.2ms)
+Completed 200 OK in 124ms (Views: 81.3ms | ActiveRecord: 39.6ms)
+
+
+Started PATCH "/profiles/13" for 127.0.0.1 at 2017-08-20 12:04:25 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OtnlgkR1h/WGqpD32Dq7f76PuVnzvDKrc2my/JXaXw7NZC9mxjXeA7IdxlC5eZ54ZXxHR88A+a0zemcWoEYv3g==", "profile"=>{"first_name"=>"aslkdjasl", "second_name"=>"jkhk", "second_last_name"=>"jhgjhg", "first_last_name"=>"hjgjhgj", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"20", "phone_number"=>"34534253425", "curp"=>"fdghdkhsgfd", "rfc"=>"dfgdfsgdsfg", "gender"=>"masculino"}, "profile_birth_state"=>"Campeche", "button"=>"", "id"=>"13"}
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "profiles" SET "first_name" = $1, "second_name" = $2, "second_last_name" = $3, "first_last_name" = $4, "curp" = $5, "rfc" = $6, "gender" = $7, "phone_number" = $8, "birth_date" = $9, "updated_at" = $10 WHERE "profiles"."id" = $11[0m  [["first_name", "aslkdjasl"], ["second_name", "jkhk"], ["second_last_name", "jhgjhg"], ["first_last_name", "hjgjhgj"], ["curp", "fdghdkhsgfd"], ["rfc", "dfgdfsgdsfg"], ["gender", "masculino"], ["phone_number", "34534253425"], ["birth_date", "2017-08-20"], ["updated_at", "2017-08-20 17:04:25.527517"], ["id", 13]]
+  [1m[35m (56.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "requisitions" WHERE (profile_id =13)[0m
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 125ms (ActiveRecord: 100.0ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-20 12:04:25 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendered requisitions/_reference_fields.erb (2.5ms)
+  Rendered requisitions/_form.html.erb (72.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (90.9ms)
+Completed 200 OK in 159ms (Views: 135.5ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/requisitions" for 127.0.0.1 at 2017-08-20 12:06:00 -0500
+Processing by RequisitionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rHcKpkdN/o/ouT9DqUGh1bqvSIEQt1BnKaMZQ1hO+edbysBCxQ2nedwOaeTIAoTSYVy2nywLm2FpsMypbdKJNw==", "requisition"=>{"requested_amount"=>"6874673", "comment"=>"jhsdkjfhdskfjkh", "income"=>"34758345", "profile_id"=>"13", "marital_status"=>"Viudo", "dependents_number"=>"3", "has_sgmm"=>"1", "has_imss"=>"0", "has_car"=>"0", "address_years"=>"2", "company_position"=>"Jubilado", "company_name"=>"dfdsf", "company_phone_number"=>"54432525", "company_years"=>"1", "payment_terms"=>"Pago Unico", "bank"=>"sdfsdfa", "references_attributes"=>{"1503248740073"=>{"first_name"=>"sdas", "second_name"=>"gfhgfhg", "first_last_name"=>"hgfhg", "second_last_name"=>"fhfhjf", "cell_phone_number"=>"67576576", "_destroy"=>"false"}, "1503248746037"=>{"first_name"=>"hghghgf", "second_name"=>"gdhgfhgfhf", "first_last_name"=>"hgfhgfh", "second_last_name"=>"fhgfhfhg", "cell_phone_number"=>"67574565", "_destroy"=>"false"}, "1503248753650"=>{"first_name"=>"guhg", "second_name"=>"yftyftyftyf", "first_last_name"=>"ftyftyfty", "second_last_name"=>"tyfyfyt", "cell_phone_number"=>"4465465", "_destroy"=>"false"}}}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "requisitions" ("income", "address_years", "company_years", "marital_status", "requested_amount", "payment_terms", "bank", "comment", "company_name", "company_phone_number", "dependents_number", "company_position", "has_sgmm", "has_imss", "has_car", "created_at", "updated_at", "profile_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING "id"[0m  [["income", "34758345.0"], ["address_years", 2], ["company_years", 1], ["marital_status", "Viudo"], ["requested_amount", "6874673.0"], ["payment_terms", "Pago Unico"], ["bank", "sdfsdfa"], ["comment", "jhsdkjfhdskfjkh"], ["company_name", "dfdsf"], ["company_phone_number", "54432525"], ["dependents_number", 3], ["company_position", "Jubilado"], ["has_sgmm", "t"], ["has_imss", "f"], ["has_car", "f"], ["created_at", "2017-08-20 17:06:00.915967"], ["updated_at", "2017-08-20 17:06:00.915967"], ["profile_id", 13]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "references" ("first_name", "second_name", "first_last_name", "second_last_name", "cell_phone_number", "requisition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "sdas"], ["second_name", "gfhgfhg"], ["first_last_name", "hgfhg"], ["second_last_name", "fhfhjf"], ["cell_phone_number", "67576576"], ["requisition_id", 6], ["created_at", "2017-08-20 17:06:00.918248"], ["updated_at", "2017-08-20 17:06:00.918248"]]
+  [1m[35mSQL (32.4ms)[0m  [1m[32mINSERT INTO "references" ("first_name", "second_name", "first_last_name", "second_last_name", "cell_phone_number", "requisition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "hghghgf"], ["second_name", "gdhgfhgfhf"], ["first_last_name", "hgfhgfh"], ["second_last_name", "fhgfhfhg"], ["cell_phone_number", "67574565"], ["requisition_id", 6], ["created_at", "2017-08-20 17:06:00.919681"], ["updated_at", "2017-08-20 17:06:00.919681"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "references" ("first_name", "second_name", "first_last_name", "second_last_name", "cell_phone_number", "requisition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "guhg"], ["second_name", "yftyftyftyf"], ["first_last_name", "ftyftyfty"], ["second_last_name", "tyfyfyt"], ["cell_phone_number", "4465465"], ["requisition_id", 6], ["created_at", "2017-08-20 17:06:00.953192"], ["updated_at", "2017-08-20 17:06:00.953192"]]
+  [1m[35m (76.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/6
+Completed 302 Found in 122ms (ActiveRecord: 110.4ms)
+
+
+Started GET "/requisitions/6" for 127.0.0.1 at 2017-08-20 12:06:01 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  [1m[36mReference Load (0.3ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 6]]
+  Rendered requisitions/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 63ms (Views: 60.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:06:04 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.5ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 80ms (Views: 69.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:06:58 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 85ms (Views: 75.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:07:02 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 128ms (Views: 73.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:08:05 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 5.1ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<ProfilesController:0x007f56d11250f0>
+Did you mean?  current_profile):
+  
+cancancan (2.0.0) lib/cancan/controller_additions.rb:350:in `current_ability'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:229:in `current_ability'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:72:in `load_collection?'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:36:in `load_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:28:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:12:12 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 5.5ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<Ability:0x007f56d0074d50>):
+  
+app/models/ability.rb:5:in `initialize'
+app/controllers/application_controller.rb:5:in `new'
+app/controllers/application_controller.rb:5:in `current_ability'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:12:41 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 4.8ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:12:55 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 5.0ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:12:56 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:12:57 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:13:14 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 110ms (Views: 70.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:13:17 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 77ms (Views: 72.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:13:19 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 86ms (Views: 80.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-20 12:13:30 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 4.2ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:14:17 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (53.9ms)
+Completed 200 OK in 111ms (Views: 101.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:14:30 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 97ms (Views: 86.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:14:50 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 90ms (Views: 80.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:14:52 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 65ms (Views: 64.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/requisitions/5" for 127.0.0.1 at 2017-08-20 12:14:57 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRequisition Load (0.8ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  [1m[36mReference Load (0.2ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 5]]
+  Rendered requisitions/show.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 94ms (Views: 86.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/requisitions/6" for 127.0.0.1 at 2017-08-20 12:15:01 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  [1m[36mReference Load (0.4ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 6]]
+  Rendered requisitions/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 64ms (Views: 60.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:15:13 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 95ms (Views: 85.2ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:16:06 -0500
+Processing by RequisitionsController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 4.3ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:16:08 -0500
+Processing by RequisitionsController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requisitions/" for 127.0.0.1 at 2017-08-20 12:16:10 -0500
+Processing by RequisitionsController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requisitions/5" for 127.0.0.1 at 2017-08-20 12:16:26 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.4ms)
+
+
+  
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+cancancan (2.0.0) lib/cancan/ability.rb:217:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_additions.rb:335:in `authorize!'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:43:in `authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:29:in `load_and_authorize_resource'
+cancancan (2.0.0) lib/cancan/controller_resource.rb:12:in `block in add_before_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.3) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.3) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.3) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.3) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.3) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/requisitions/6" for 127.0.0.1 at 2017-08-20 12:16:28 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  [1m[36mReference Load (0.3ms)[0m  [1m[34mSELECT "references".* FROM "references" WHERE "references"."requisition_id" = $1[0m  [["requisition_id", 6]]
+  Rendered requisitions/show.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 99ms (Views: 90.8ms | ActiveRecord: 5.1ms)
+
+
