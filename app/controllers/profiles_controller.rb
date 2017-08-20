@@ -26,11 +26,12 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @requisition = Requisition.new
 
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
+        format.html { redirect_to @requisition.new, notice: 'Los datos se actualizaron correctamente' }
+        format.json { render :new, status: :created, location: @requisition }
       else
         format.html { render :new }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -41,10 +42,16 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    @requisition = Requisition.new
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
+        if logger.debug current_profile.requisition_pend.count > 0
+          format.html { redirect_to "/requisitions/"+current_profile.requisition_pend[0].id.to_s+"/edit", notice: 'Los datos se actualizaron correctamente' }
+          format.json { render :new, status: :ok, location: @requisition }
+        else
+          format.html { redirect_to "/requisitions/new", notice: 'Los datos se actualizaron correctamente' }
+          format.json { render :new, status: :ok, location: @requisition }
+        end
       else
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }

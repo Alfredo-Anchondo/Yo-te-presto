@@ -3888,3 +3888,2008 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 66ms (Views: 64.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/profiles/sign_in" for 127.0.0.1 at 2017-08-19 14:07:41 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (211.7ms)
+Completed 200 OK in 318ms (Views: 274.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-19 14:09:45 -0500
+Started GET "/profiles/auth/facebook" for 127.0.0.1 at 2017-08-19 14:09:46 -0500
+Started GET "/profiles/auth/facebook/callback?code=AQAVfr8hxmtS_TldP1_4bxY54t8uPk3bENfj5Seb3TFXblvsw9Ldn2O78HDchwt9OXTiie10SmedPs5CCzXI0i8rnVGWrbulGS3JoHDBBM_Hk6OwEl4YAGgfpGkg4HhGbBMDNzakaPXgpbfQMba9-x5OmVAQqr8l1bmXun2qRFXHXS8qulPGGkQJiKuGelTDfgYcL6V8wx-b5ISu6vEb1t4tlTqr_RqrREhb7WWgo-icUgG9Jw5pkj2b94QoFpPxKcMwS7KdCoH4Z2zHmFrvRYvevu2zCPJxQusuGNGAet5H3KCPAF8cbpO0xcVSPZlVomk&state=cdfd286190cdbfb0ce7b777ca39f16c922e5b3a83081b505" for 127.0.0.1 at 2017-08-19 14:09:46 -0500
+Processing by Profiles::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQAVfr8hxmtS_TldP1_4bxY54t8uPk3bENfj5Seb3TFXblvsw9Ldn2O78HDchwt9OXTiie10SmedPs5CCzXI0i8rnVGWrbulGS3JoHDBBM_Hk6OwEl4YAGgfpGkg4HhGbBMDNzakaPXgpbfQMba9-x5OmVAQqr8l1bmXun2qRFXHXS8qulPGGkQJiKuGelTDfgYcL6V8wx-b5ISu6vEb1t4tlTqr_RqrREhb7WWgo-icUgG9Jw5pkj2b94QoFpPxKcMwS7KdCoH4Z2zHmFrvRYvevu2zCPJxQusuGNGAet5H3KCPAF8cbpO0xcVSPZlVomk", "state"=>"cdfd286190cdbfb0ce7b777ca39f16c922e5b3a83081b505"}
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."provider" = $1 AND "profiles"."uid" = $2 ORDER BY "profiles"."id" ASC LIMIT $3[0m  [["provider", "facebook"], ["uid", "10212387806145721"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProfile Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "alfr3do_1@hotmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "profiles" ("email", "provider", "uid", "name", "image", "created_at", "updated_at", "encrypted_password") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "alfr3do_1@hotmail.com"], ["provider", "facebook"], ["uid", "10212387806145721"], ["name", "Alfredo Anchondo"], ["image", "http://graph.facebook.com/v2.6/10212387806145721/picture"], ["created_at", "2017-08-19 19:09:47.174106"], ["updated_at", "2017-08-19 19:09:47.174106"], ["encrypted_password", "$2a$11$4z/lvd.Eaip3EAvsYrScNu3HvhyLGy1UFJsicWm6DB2Bpm4QkwlLe"]]
+  [1m[35m (43.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "profiles" SET "updated_at" = $1, "sign_in_count" = $2, "current_sign_in_at" = $3, "last_sign_in_at" = $4, "current_sign_in_ip" = $5, "last_sign_in_ip" = $6 WHERE "profiles"."id" = $7[0m  [["updated_at", "2017-08-19 19:09:47.222663"], ["sign_in_count", 1], ["current_sign_in_at", "2017-08-19 19:09:47.221369"], ["last_sign_in_at", "2017-08-19 19:09:47.221369"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["id", 12]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profiles
+Completed 302 Found in 291ms (ActiveRecord: 51.5ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-19 14:09:47 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 63ms (Views: 57.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:09:52 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 72ms (Views: 68.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:10:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:11:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 49ms (Views: 46.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:13:30 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:13:53 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:14:07 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:14:31 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:14:48 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 49.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:15:23 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 55ms (Views: 52.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:15:33 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 54ms (Views: 50.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:17:38 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 57ms (Views: 54.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:18:27 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 62ms (Views: 57.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:19:41 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:25:36 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:25:53 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:27:08 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:27:28 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 51ms (Views: 48.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:28:03 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 57ms (Views: 53.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:29:05 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 51ms (Views: 48.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:29:17 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:30:52 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 135ms (Views: 132.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:31:42 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:34:19 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 54ms (Views: 50.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:35:28 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 51ms (Views: 48.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:36:04 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:43:09 -0500
+  [1m[35m (28.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2885.0ms)
+Completed 200 OK in 3082ms (Views: 3028.5ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:45:59 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:46:15 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 55ms (Views: 51.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:47:49 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:48:05 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 73ms (Views: 69.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:49:36 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 69ms (Views: 65.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:49:55 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 80ms (Views: 77.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:58:39 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (427.5ms)
+Completed 200 OK in 522ms (Views: 518.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 14:59:52 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (536.3ms)
+Completed 500 Internal Server Error in 540ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@profile, :html => { :class => "form-horizontal" }) do |f| %>
+    2: <% if @profile.errors.any? %>
+    3: <div id="error_explanation">
+    4:   <% if @profile.errors.count == 1 %>
+  
+app/views/welcome/index.html.erb:1:in `_app_views_welcome_index_html_erb__3992720193431744279_70291169681140'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:00:47 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <%= form_for(current_profile, :html => { :class => "form-horizontal" }) do |f| %>
+    2: <% if @profile.errors.any? %>
+    3: <div id="error_explanation">
+    4:   <% if @profile.errors.count == 1 %>
+    5:   <h5><%= t("activerecord.errors.template.header.one", model: t("activerecord.models.profile")) %></h5>
+  
+app/views/welcome/index.html.erb:2:in `block in _app_views_welcome_index_html_erb__3992720193431744279_70290969372680'
+app/views/welcome/index.html.erb:1:in `_app_views_welcome_index_html_erb__3992720193431744279_70290969372680'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:01:04 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (74.3ms)
+Completed 200 OK in 130ms (Views: 125.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:02:46 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 60ms (Views: 57.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:04:17 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 64ms (Views: 61.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:04:52 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 90ms (Views: 86.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:06:12 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 60ms (Views: 57.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:07:57 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 99ms (Views: 63.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/profiles" for 127.0.0.1 at 2017-08-19 15:10:46 -0500
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/index.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+  Rendered profiles/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 102ms (Views: 62.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:11:32 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 104ms (Views: 64.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:11:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 67ms (Views: 64.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:12:12 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Telefonico):
+    73:     <!-- end col-md-6 -->
+    74:     <div class="col-md-6">
+    75:       <div class="form-group">
+    76:         <%= f.label Numero Telefonico, :class => "col-md-3" %>
+    77:         <div class="col-md-9">
+    78:           <%= f.text_field :phone_number, :class => "form-control" %>
+    79:         </div>
+  
+app/views/welcome/index.html.erb:76:in `block in _app_views_welcome_index_html_erb__3992720193431744279_70291200759020'
+app/views/welcome/index.html.erb:23:in `_app_views_welcome_index_html_erb__3992720193431744279_70291200759020'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:12:28 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 86ms (Views: 81.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:14:05 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 64ms (Views: 61.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:14:52 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 15:15:05 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UnwsgribyNZoHt6nvjyzsK5Tn9n9TmUsUgXXKA8vHh8S8KnV/6FHHncprVKxP1rx86QUJifL/0/623fbgtYIxA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"", "first_last_name"=>"", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"", "curp"=>"", "rfc"=>"", "gender"=>"", "birth_state"=>""}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "profiles" SET "first_name" = $1, "second_name" = $2, "second_last_name" = $3, "first_last_name" = $4, "curp" = $5, "rfc" = $6, "gender" = $7, "birth_state" = $8, "phone_number" = $9, "birth_date" = $10, "updated_at" = $11 WHERE "profiles"."id" = $12[0m  [["first_name", "alfredo"], ["second_name", ""], ["second_last_name", ""], ["first_last_name", ""], ["curp", ""], ["rfc", ""], ["gender", ""], ["birth_state", ""], ["phone_number", ""], ["birth_date", "2017-08-19"], ["updated_at", "2017-08-19 20:15:05.576063"], ["id", 12]]
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profiles/12
+Completed 302 Found in 54ms (ActiveRecord: 32.5ms)
+
+
+Started GET "/profiles/12" for 127.0.0.1 at 2017-08-19 15:15:05 -0500
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 93ms (Views: 62.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:15:16 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:15:20 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 73ms (Views: 69.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:15:43 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:102: syntax error, unexpected ')', expecting =>
+=> "form-control", :required );@output_buffer.safe_append='
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:130: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:132: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/welcome/index.html.erb:102: syntax error, unexpected ')', expecting =>
+app/views/welcome/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'
+app/views/welcome/index.html.erb:130: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/welcome/index.html.erb:132: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:16:00 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:102: syntax error, unexpected ')'
+=> "form-control", required: );@output_buffer.safe_append='
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:130: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:132: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/welcome/index.html.erb:102: syntax error, unexpected ')'
+app/views/welcome/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'
+app/views/welcome/index.html.erb:130: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/welcome/index.html.erb:132: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:16:25 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (11.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::True):
+     99:               <div class="form-group">
+    100:         <%= f.label "Estado civil", :class => "col-md-3" %>
+    101:         <div class="col-md-9">
+    102:         <%= f.text_field :birth_state, :class => "form-control", :required => True %>
+    103:         </div>
+    104:         </div>
+    105:     </div>
+  
+app/views/welcome/index.html.erb:102:in `block in _app_views_welcome_index_html_erb__3992720193431744279_70291361192940'
+app/views/welcome/index.html.erb:23:in `_app_views_welcome_index_html_erb__3992720193431744279_70291361192940'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:16:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 59ms (Views: 56.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:17:33 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:50: syntax error, unexpected ','
+e, :class => "form-control" %, :required => true>
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:52: unknown regexp options - dv
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:53: syntax error, unexpected '<'
+                      <div class="form-group">
+                       ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:54: syntax error, unexpected '<'
+              <%= f.label "Apellido Materno",
+               ^):
+  
+app/views/welcome/index.html.erb:50: syntax error, unexpected ','
+app/views/welcome/index.html.erb:52: unknown regexp options - dv
+app/views/welcome/index.html.erb:53: syntax error, unexpected '<'
+app/views/welcome/index.html.erb:54: syntax error, unexpected '<'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:17:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:50: syntax error, unexpected ','
+e, :class => "form-control" %, :required => true>
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:52: unknown regexp options - dv
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:53: syntax error, unexpected '<'
+                      <div class="form-group">
+                       ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/welcome/index.html.erb:54: syntax error, unexpected '<'
+              <%= f.label "Apellido Materno",
+               ^):
+  
+app/views/welcome/index.html.erb:50: syntax error, unexpected ','
+app/views/welcome/index.html.erb:52: unknown regexp options - dv
+app/views/welcome/index.html.erb:53: syntax error, unexpected '<'
+app/views/welcome/index.html.erb:54: syntax error, unexpected '<'
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:17:55 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 80ms (Views: 76.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:42:19 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 535ms (Views: 531.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:43:24 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (90.3ms)
+Completed 200 OK in 159ms (Views: 156.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 15:43:40 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (56.6ms)
+Completed 200 OK in 137ms (Views: 133.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 17:20:58 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 308ms (Views: 305.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 17:35:18 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.3) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (13.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(149381542836813735)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRequisitions (20170819223449)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (156.0ms)[0m  [1m[35mCREATE TABLE "requisitions" ("id" bigserial primary key, "income" decimal, "address_years" integer, "company_years" integer, "marital_status" character varying, "requested_amount" decimal, "payment_terms" character varying, "bank" character varying, "comment" character varying, "company_name" character varying, "company_phone_number" character varying, "dependents_number" integer, "company_position" character varying, "has_sgmm" boolean, "has_imss" boolean, "has_car" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170819223449"]]
+  [1m[35m (43.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(149381542836813735)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 17:35:40 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.9ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (88.6ms)
+Completed 200 OK in 3191ms (Views: 3178.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:35:48 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (635.1ms)
+  Rendered requisitions/new.html.erb within layouts/application (637.4ms)
+Completed 200 OK in 726ms (Views: 700.1ms | ActiveRecord: 2.3ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(149381542836813735)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForaingKey (20170819224040)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(149381542836813735)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(149381542836813735)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForaingKey (20170819224040)
+  [1m[35m (94.9ms)[0m  [1m[35mALTER TABLE "requisitions" ADD CONSTRAINT "fk_rails_16f5ceddd0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "requisitions" ADD CONSTRAINT "fk_rails_16f5ceddd0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(149381542836813735)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(149381542836813735)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForaingKey (20170819224040)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(149381542836813735)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(149381542836813735)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForaingKey (20170819224040)
+  [1m[35m (292.3ms)[0m  [1m[35mALTER TABLE "requisitions" ADD "profile_id" integer[0m
+  [1m[35m (99.0ms)[0m  [1m[35mALTER TABLE "requisitions" ADD CONSTRAINT "fk_rails_16f5ceddd0"
+FOREIGN KEY ("profile_id")
+  REFERENCES "profiles" ("id")
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170819224040"]]
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(149381542836813735)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:52:38 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (28.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (114.3ms)
+Completed 200 OK in 1247ms (Views: 1185.6ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:53:30 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (7.4ms)
+  Rendered requisitions/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 106ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:54:05 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (7.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 93ms (Views: 67.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:54:08 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (10.2ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 80ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:56:19 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (3.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:23: syntax error, unexpected tSYMBEG, expecting ')'
+:value => current_profile.id :class => "form-control" );@out
+                              ^):
+  
+app/views/requisitions/_form.html.erb:23: syntax error, unexpected tSYMBEG, expecting ')'
+app/views/requisitions/new.html.erb:12:in `_app_views_requisitions_new_html_erb___1495575086195427423_47288645693700'
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:56:22 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (1.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:23: syntax error, unexpected tSYMBEG, expecting ')'
+:value => current_profile.id :class => "form-control" );@out
+                              ^):
+  
+app/views/requisitions/_form.html.erb:23: syntax error, unexpected tSYMBEG, expecting ')'
+app/views/requisitions/new.html.erb:12:in `_app_views_requisitions_new_html_erb___1495575086195427423_70202689414640'
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:56:46 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (1.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (85.2ms)
+  Rendered requisitions/new.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 146ms (Views: 139.9ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 17:57:55 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (47.2ms)
+  Rendered requisitions/new.html.erb within layouts/application (63.5ms)
+Completed 200 OK in 166ms (Views: 125.8ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:05:32 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.3ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:05:52 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (52.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (55.2ms)
+Completed 200 OK in 139ms (Views: 137.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:08:08 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.1ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 77ms (Views: 75.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:08:40 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (54.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (56.5ms)
+Completed 200 OK in 122ms (Views: 120.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:09:10 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:09:59 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (1.8ms)
+  Rendered requisitions/new.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:27: syntax error, unexpected ':', expecting ')'
+ para poder atenderte mejor" :class => "col-md-3" );@output_
+                              ^):
+  
+app/views/requisitions/_form.html.erb:27: syntax error, unexpected ':', expecting ')'
+app/views/requisitions/new.html.erb:12:in `_app_views_requisitions_new_html_erb___1495575086195427423_70202700970280'
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:10:10 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (16.1ms)
+  Rendered requisitions/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:11:20 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.8ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 66ms (Views: 64.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:11:56 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 66ms (Views: 64.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:12:36 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.2ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 78ms (Views: 75.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:16:09 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:16:44 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 66ms (Views: 64.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:17:13 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.3ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 73ms (Views: 71.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:17:56 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 69ms (Views: 67.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:18:35 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.4ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 67ms (Views: 65.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:19:58 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 68ms (Views: 66.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:20:10 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:22:53 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (16.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 86ms (Views: 83.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:23:02 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.2ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 79ms (Views: 77.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:23:10 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 81ms (Views: 79.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:23:51 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (16.3ms)
+  Rendered requisitions/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 94ms (Views: 92.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:24:33 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 75ms (Views: 73.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:27:21 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 78ms (Views: 75.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:27:43 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (9.9ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 66ms (Views: 64.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:32:41 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (294.7ms)
+Completed 200 OK in 1620ms (Views: 888.5ms | ActiveRecord: 139.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:33:23 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 145ms (Views: 142.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:34:01 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMdIorYBj4G74dp4Kva4WCUxOoXC8cUcsXbA/mUqnZ1YS8318TsASaTWqY0l9VEZeMaxehh0X38ZqGAN6NOLRg==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.0ms)[0m  [1m[33mUPDATE "profiles" SET "second_last_name" = $1, "first_last_name" = $2, "curp" = $3, "rfc" = $4, "gender" = $5, "birth_state" = $6, "phone_number" = $7, "updated_at" = $8 WHERE "profiles"."id" = $9[0m  [["second_last_name", "Anchondo"], ["first_last_name", "Porras"], ["curp", "AOPA920123HCMNRL07"], ["rfc", "AOPA920123SV8"], ["gender", "Masculino"], ["birth_state", "Chihuahua"], ["phone_number", "34535"], ["updated_at", "2017-08-19 23:34:02.201708"], ["id", 12]]
+  [1m[35m (31.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profiles/12
+Completed 302 Found in 335ms (ActiveRecord: 56.2ms)
+
+
+Started GET "/profiles/12" for 127.0.0.1 at 2017-08-19 18:34:02 -0500
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 105ms (Views: 68.8ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:34:51 -0500
+  [1m[35m (23.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMdIorYBj4G74dp4Kva4WCUxOoXC8cUcsXbA/mUqnZ1YS8318TsASaTWqY0l9VEZeMaxehh0X38ZqGAN6NOLRg==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.8ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profiles/12
+Completed 302 Found in 75ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/profiles/12" for 127.0.0.1 at 2017-08-19 18:34:51 -0500
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (133.6ms)
+Completed 200 OK in 1162ms (Views: 1154.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:34:57 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 126ms (Views: 122.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:35:02 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xrdMhg6Rb/uo4/nZL2ZyCsiwJVDeQVbPZZxyAQ+bxCKGO8nRSavgM7fUiiwgZZtLlUeurwTEzKzNQtLygmLS+Q==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (1.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/profiles/12
+Completed 302 Found in 8ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/profiles/12" for 127.0.0.1 at 2017-08-19 18:35:02 -0500
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering profiles/show.html.erb within layouts/application
+  Rendered profiles/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 111ms (Views: 105.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:35:56 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 142ms (Views: 85.3ms | ActiveRecord: 4.7ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:36:02 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fWjCvow05+ywjxdClIN7URCm6wTXnRKgW7tlPpC/ihs95Efpyw5oJK+4ZLebgJIQTVFg+w0YiMPzZcXNHUacwA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions
+Completed 302 Found in 236ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 18:36:02 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (1.2ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 96ms (Views: 85.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:37:37 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 102ms (Views: 61.5ms | ActiveRecord: 5.3ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:37:42 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qQw5WKrDvcTYVTFv6Wgdbs6/RVWu58vPq+p2lEg6DfHpgLwP7fkyDMdiQprma/Qvk0jOqnRiUawDNNZnxcMbKg==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions
+Completed 302 Found in 49ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 18:37:42 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 91ms (Views: 88.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:41:24 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 113ms (Views: 70.3ms | ActiveRecord: 4.6ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:41:28 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lcisrtrS4AR6LEgO4Jxba0DtzGsh/rtOAKIFSIuZhJnVRCn5nehvzGUbO/vvn7IqHRpHlPt7IS2ofKW7BmCSQg==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions
+Completed 302 Found in 34ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 18:41:29 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:42:01 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 104ms (Views: 66.9ms | ActiveRecord: 3.8ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:42:06 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SIBCmU3iHslui4tFwjvUcfj8D6QUeS2KkGvswzUz39YIDMfOCtiRAXG8+LDNOD0wpQuEW878t+k4tUwwuMrJDQ==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 4.4ms)
+
+
+  
+NoMethodError (undefined method `new' for #<Requisition:0x007f94de8c82d0>):
+  
+app/controllers/profiles_controller.rb:48:in `block (2 levels) in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:42:36 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 109ms (Views: 67.0ms | ActiveRecord: 6.7ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:42:40 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4BKpv7XgjWaXXr6FqAEAflua0vJ+rtbE3gdB8hnwNBOgnizo8toCrohpzXCnAuk/Bm1ZDaQrTKd22eEBlAkiyA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000requisitions/new
+Completed 302 Found in 31ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 18:42:57 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 120ms (Views: 79.5ms | ActiveRecord: 4.0ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:43:03 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HSxps3PCHxI24nqXyEEwosWWAhGVIEF6Vyi5FioDFyJdoOzkNPiQ2inVCWLHQtnjmGGJ7k+l2xn/9hnlp/oB+Q==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 42ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:43:03 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (49.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (69.8ms)
+Completed 200 OK in 151ms (Views: 132.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:44:49 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (15.8ms)
+  Rendered requisitions/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 95ms (Views: 92.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:45:03 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 78ms (Views: 76.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:48:07 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 78ms (Views: 76.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:48:20 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.3ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 75ms (Views: 73.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:49:53 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (13.6ms)
+  Rendered requisitions/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 82ms (Views: 80.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:50:48 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (17.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 82ms (Views: 80.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:51:08 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.1ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:51:49 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 67ms (Views: 65.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:52:38 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (11.8ms)
+  Rendered requisitions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 71ms (Views: 69.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/requisitions" for 127.0.0.1 at 2017-08-19 18:54:06 -0500
+Processing by RequisitionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0KIVA8ZRO4Tk9wSLob3dD1guGNkF67Co0MyFF/t+4tCQLpBUgWu0TPvAd36uvjROBdmTJt9uKst4EiXkdof0Cw==", "requisition"=>{"requested_amount"=>"10001", "comment"=>"Por que soy pobre :c", "income"=>"50000", "profile_id"=>"12", "dependents_number"=>"2", "has_sgmm"=>"0", "has_imss"=>"1", "has_car"=>"0", "company_name"=>"BOSC", "company_phone_number"=>"6141986965", "bank"=>"BANAMEX"}, "requisition_marital_status"=>"Soltero", "requisition_address_years"=>"De 9 a 12 meses", "requisition_company_position"=>"Gerente", "requisition_company_years"=>"De 6 a 9 meses", "requisition_payment_terms"=>"De 3 a 6 meses", "button"=>""}
+Unpermitted parameter: :profile_id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (142.6ms)[0m  [1m[32mINSERT INTO "requisitions" ("income", "requested_amount", "bank", "comment", "company_name", "company_phone_number", "dependents_number", "has_sgmm", "has_imss", "has_car", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["income", "50000.0"], ["requested_amount", "10001.0"], ["bank", "BANAMEX"], ["comment", "Por que soy pobre :c"], ["company_name", "BOSC"], ["company_phone_number", "6141986965"], ["dependents_number", 2], ["has_sgmm", "f"], ["has_imss", "t"], ["has_car", "f"], ["created_at", "2017-08-19 23:54:06.868952"], ["updated_at", "2017-08-19 23:54:06.868952"]]
+  [1m[35m (13.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/1
+Completed 302 Found in 218ms (ActiveRecord: 156.2ms)
+
+
+Started GET "/requisitions/1" for 127.0.0.1 at 2017-08-19 18:54:07 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 106ms (Views: 73.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 18:54:15 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 78ms (Views: 76.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:55:36 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.4ms)
+  Rendered requisitions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 84ms (Views: 82.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:56:32 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (25.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 107ms (Views: 105.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:57:02 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (14.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 81ms (Views: 78.3ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 18:57:24 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HSxps3PCHxI24nqXyEEwosWWAhGVIEF6Vyi5FioDFyJdoOzkNPiQ2inVCWLHQtnjmGGJ7k+l2xn/9hnlp/oB+Q==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 18:57:24 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.1ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 77ms (Views: 74.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:01:17 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (192.8ms)
+  Rendered requisitions/new.html.erb within layouts/application (196.5ms)
+Completed 200 OK in 1361ms (Views: 1313.0ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:03:35 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 163ms (Views: 95.1ms | ActiveRecord: 5.0ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:03:39 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i2w5P6M921Tb34v8FmBXjFwhfgVTcmijCXD4+qlXsAHL4Lxo5AdUnMTo+AkZY77NAdb1+on38sChrlgJJK6m2g==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 4.2ms)
+
+
+  
+NoMethodError (undefined method `requisition' for #<Profile:0x007f65f02a1a90>
+Did you mean?  requisitions
+               requisitions=):
+  
+app/controllers/profiles_controller.rb:48:in `block in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 19:05:17 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.6ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 77ms (Views: 75.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/1" for 127.0.0.1 at 2017-08-19 19:05:28 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 74ms (Views: 70.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 19:06:31 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/requisitions/1" for 127.0.0.1 at 2017-08-19 19:06:37 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRequisition Load (0.7ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 86ms (Views: 82.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:07:42 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 122ms (Views: 82.9ms | ActiveRecord: 3.7ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:07:46 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m1DmjElVtzwjtzo6+/lo3Y1/0gWQ+OJd/syhrE5iCuTb3GPbDm849DyASc/0+oGc0IhZ+kp9eD5WEgFfw5scPw==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 103ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:07:47 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.7ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 95ms (Views: 72.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:09:31 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 105ms (Views: 69.3ms | ActiveRecord: 4.1ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:09:38 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gND08n4MlxMWYwYgbe5WsuKJD5rKOJln9wMrNtM2/jDAXHGlOTYY2wlUddVi7b/zv36EZRC9AwRf3YvFXs/o6w==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 4.5ms)
+
+
+  
+NoMethodError (undefined method `comment' for nil:NilClass):
+  
+app/controllers/profiles_controller.rb:48:in `block in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:12:59 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 105ms (Views: 69.5ms | ActiveRecord: 4.3ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:13:03 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3K7yBIKi3BOKd1Sy8ShAZnA7yzw4fzAuiCjXqAHoQuucIndTxZhT25VAJ0f+K6knLcxAw+L6qk0g9ndbjBFUMA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 4.2ms)
+
+
+  
+NameError (undefined local variable or method `current_profile' for #<Profile:0x007f65f01d5738>
+Did you mean?  current_password):
+  
+app/models/profile.rb:11:in `requisition_pend'
+app/controllers/profiles_controller.rb:48:in `block in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:13:55 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (2.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 138ms (Views: 77.6ms | ActiveRecord: 6.9ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:14:00 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/QxB0RazcZo5R65ZUHL7KiZO5dmn3zQqfEp8Xa1MQMu9gMSGUYn+UiZw3axfcRJre7luJn1arknUlNyuILVWEA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."profile_id" = $1 LIMIT $2[0m  [["profile_id", 12], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 5.3ms)
+
+
+  
+NoMethodError (undefined method `where' for nil:NilClass):
+  
+app/models/profile.rb:11:in `requisition_pend'
+app/controllers/profiles_controller.rb:48:in `block in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:14:23 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/QxB0RazcZo5R65ZUHL7KiZO5dmn3zQqfEp8Xa1MQMu9gMSGUYn+UiZw3axfcRJre7luJn1arknUlNyuILVWEA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+#<Requisition::ActiveRecord_Relation:0x007f65f40495f0>
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 77ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:14:23 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.5ms)
+  Rendered requisitions/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 82ms (Views: 80.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:15:34 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 139ms (Views: 77.9ms | ActiveRecord: 4.1ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:15:38 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vikQgBTsYqMn/St6HWauaYLuuEyodwMRif7dTyyb+K+dCEVR2k+QpOoh1jndnP4+/wxHugkRm/u+VuGsUt5OQ==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE (profile_id =12) LIMIT $1[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 4.1ms)
+
+
+  
+  [1m[36mCACHE Requisition Load (0.0ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE (profile_id =12) LIMIT $1[0m  [["LIMIT", 11]]
+NoMethodError (undefined method `comment' for #<ActiveRecord::Relation []>):
+  
+app/controllers/profiles_controller.rb:48:in `block in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:16:02 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vikQgBTsYqMn/St6HWauaYLuuEyodwMRif7dTyyb+K+dCEVR2k+QpOoh1jndnP4+/wxHugkRm/u+VuGsUt5OQ==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (29.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "requisitions" WHERE (profile_id =12)[0m
+0
+Redirected to http://localhost:3000/requisitions/new
+Completed 302 Found in 103ms (ActiveRecord: 39.2ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:16:03 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.3ms)
+  Rendered requisitions/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 74ms (Views: 72.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/requisitions" for 127.0.0.1 at 2017-08-19 19:17:11 -0500
+Processing by RequisitionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BDAZ1o9E8e3jXP7124ToIdWIqx2iVzhIFGfHFk65KnJEvJyByH5+JfxrjQDUhwFgiH8g4njSoiu8uWflw0A8qQ==", "requisition"=>{"requested_amount"=>"10001", "comment"=>"pro que puedo", "income"=>"213123123", "profile_id"=>"12", "dependents_number"=>"15", "has_sgmm"=>"1", "has_imss"=>"0", "has_car"=>"0", "company_name"=>"1231", "company_phone_number"=>"345345", "bank"=>"5345345"}, "requisition_marital_status"=>"Soltero", "requisition_address_years"=>"De 3 a 6 meses", "requisition_company_position"=>"Empleado", "requisition_company_years"=>"De 3 a 6 meses", "requisition_payment_terms"=>"De 3 a 6 meses", "button"=>""}
+Unpermitted parameter: :profile_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "requisitions" ("income", "requested_amount", "bank", "comment", "company_name", "company_phone_number", "dependents_number", "has_sgmm", "has_imss", "has_car", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["income", "213123123.0"], ["requested_amount", "10001.0"], ["bank", "5345345"], ["comment", "pro que puedo"], ["company_name", "1231"], ["company_phone_number", "345345"], ["dependents_number", 15], ["has_sgmm", "t"], ["has_imss", "f"], ["has_car", "f"], ["created_at", "2017-08-20 00:17:11.512325"], ["updated_at", "2017-08-20 00:17:11.512325"]]
+  [1m[35m (82.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/2
+Completed 302 Found in 88ms (ActiveRecord: 83.5ms)
+
+
+Started GET "/requisitions/2" for 127.0.0.1 at 2017-08-19 19:17:11 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRequisition Load (0.5ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 85ms (Views: 74.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:19:32 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (14.4ms)
+  Rendered requisitions/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 101ms (Views: 98.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/requisitions" for 127.0.0.1 at 2017-08-19 19:19:36 -0500
+Processing by RequisitionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v3fB8m2FX2KQOQLsCEeSNDG+tfaCbQG7UaabOwGrqQX/+0SlKr/Qqo8OcRkHRHt1bEk+CVjom9j5eDvIjFK/3g==", "requisition"=>{"requested_amount"=>"10001", "comment"=>"pro que puedo", "income"=>"213123123", "profile_id"=>"#<Profile:0x007f65ec028380>", "dependents_number"=>"15", "has_sgmm"=>"1", "has_imss"=>"0", "has_car"=>"0", "company_name"=>"1231", "company_phone_number"=>"345345", "bank"=>"5345345"}, "requisition_marital_status"=>"Soltero", "requisition_address_years"=>"De 3 a 6 meses", "requisition_company_position"=>"Empleado", "requisition_company_years"=>"De 3 a 6 meses", "requisition_payment_terms"=>"De 3 a 6 meses", "button"=>""}
+Unpermitted parameter: :profile_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "requisitions" ("income", "requested_amount", "bank", "comment", "company_name", "company_phone_number", "dependents_number", "has_sgmm", "has_imss", "has_car", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["income", "213123123.0"], ["requested_amount", "10001.0"], ["bank", "5345345"], ["comment", "pro que puedo"], ["company_name", "1231"], ["company_phone_number", "345345"], ["dependents_number", 15], ["has_sgmm", "t"], ["has_imss", "f"], ["has_car", "f"], ["created_at", "2017-08-20 00:19:36.941020"], ["updated_at", "2017-08-20 00:19:36.941020"]]
+  [1m[35m (52.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/3
+Completed 302 Found in 64ms (ActiveRecord: 53.6ms)
+
+
+Started GET "/requisitions/3" for 127.0.0.1 at 2017-08-19 19:19:37 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 82ms (Views: 78.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 19:19:48 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.5ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 102ms (Views: 81.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/requisitions/new" for 127.0.0.1 at 2017-08-19 19:20:47 -0500
+Processing by RequisitionsController#new as HTML
+  Rendering requisitions/new.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (42.0ms)
+  Rendered requisitions/new.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 161ms (Views: 97.2ms | ActiveRecord: 11.0ms)
+
+
+Started POST "/requisitions" for 127.0.0.1 at 2017-08-19 19:20:51 -0500
+Processing by RequisitionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xRwc3KAvHhJ//fCvb+zrgpVUQt4HdjHj54CXgrtL0D2FkJmL5xWR2mDKg1pg7wLDyKPJId3zq4BPXjdxNrLG5g==", "requisition"=>{"requested_amount"=>"10001", "comment"=>"pro que puedo", "income"=>"213123123", "profile_id"=>"12", "dependents_number"=>"15", "has_sgmm"=>"1", "has_imss"=>"0", "has_car"=>"0", "company_name"=>"1231", "company_phone_number"=>"345345", "bank"=>"5345345"}, "requisition_marital_status"=>"Soltero", "requisition_address_years"=>"De 3 a 6 meses", "requisition_company_position"=>"Empleado", "requisition_company_years"=>"De 3 a 6 meses", "requisition_payment_terms"=>"De 3 a 6 meses", "button"=>""}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (264.7ms)[0m  [1m[32mINSERT INTO "requisitions" ("income", "requested_amount", "bank", "comment", "company_name", "company_phone_number", "dependents_number", "has_sgmm", "has_imss", "has_car", "created_at", "updated_at", "profile_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["income", "213123123.0"], ["requested_amount", "10001.0"], ["bank", "5345345"], ["comment", "pro que puedo"], ["company_name", "1231"], ["company_phone_number", "345345"], ["dependents_number", 15], ["has_sgmm", "t"], ["has_imss", "f"], ["has_car", "f"], ["created_at", "2017-08-20 00:20:51.843270"], ["updated_at", "2017-08-20 00:20:51.843270"], ["profile_id", 12]]
+  [1m[35m (12.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/4
+Completed 302 Found in 283ms (ActiveRecord: 277.7ms)
+
+
+Started GET "/requisitions/4" for 127.0.0.1 at 2017-08-19 19:20:52 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.6ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 76ms (Views: 71.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions" for 127.0.0.1 at 2017-08-19 19:20:57 -0500
+Processing by RequisitionsController#index as HTML
+  Rendering requisitions/index.html.erb within layouts/application
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions"[0m
+  Rendered requisitions/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 92ms (Views: 90.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:22:50 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 166ms (Views: 97.1ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:22:55 -0500
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/controllers/profiles_controller.rb:54: syntax error, unexpected keyword_else, expecting keyword_end
+      else
+          ^
+/home/alfredo/Documentos/Yo-te-presto/app/controllers/profiles_controller.rb:81: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/profiles_controller.rb:54: syntax error, unexpected keyword_else, expecting keyword_end
+app/controllers/profiles_controller.rb:81: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2017-08-19 19:23:35 -0500
+Processing by WelcomeController#index as HTML
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 118ms (Views: 80.0ms | ActiveRecord: 3.8ms)
+
+
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:23:39 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rULChOvVaXjLmyPG/vztKwMQIFeSnqqnDJHGdnYQsn/tzkfTrO/msNSsUDPx/wRqXuerqEgbMMSkT2aF++mkpA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "requisitions" WHERE (profile_id =12)[0m
+true
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions" WHERE (profile_id =12)[0m
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 4.7ms)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/profiles_controller.rb:49:in `+'
+app/controllers/profiles_controller.rb:49:in `block (2 levels) in update'
+app/controllers/profiles_controller.rb:46:in `update'
+Started PATCH "/profiles/12" for 127.0.0.1 at 2017-08-19 19:25:07 -0500
+Processing by ProfilesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rULChOvVaXjLmyPG/vztKwMQIFeSnqqnDJHGdnYQsn/tzkfTrO/msNSsUDPx/wRqXuerqEgbMMSkT2aF++mkpA==", "profile"=>{"first_name"=>"alfredo", "second_name"=>"", "second_last_name"=>"Anchondo", "first_last_name"=>"Porras", "birth_date(1i)"=>"2017", "birth_date(2i)"=>"8", "birth_date(3i)"=>"19", "phone_number"=>"34535", "curp"=>"AOPA920123HCMNRL07", "rfc"=>"AOPA920123SV8", "gender"=>"Masculino", "birth_state"=>"Chihuahua"}, "button"=>"", "id"=>"12"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "requisitions" WHERE (profile_id =12)[0m
+true
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT "requisitions".* FROM "requisitions" WHERE (profile_id =12)[0m
+Redirected to http://localhost:3000/requisitions/4/edit
+Completed 302 Found in 75ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:25:07 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.4ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.7ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (15.3ms)
+  Rendered requisitions/edit.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 124ms (Views: 98.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:25:50 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (1.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (14.8ms)
+  Rendered requisitions/edit.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 101ms (Views: 96.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:26:19 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.1ms)
+  Rendered requisitions/edit.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 88ms (Views: 84.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:27:19 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (10.3ms)
+  Rendered requisitions/edit.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 79ms (Views: 76.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:27:32 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (12.4ms)
+  Rendered requisitions/edit.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 80ms (Views: 77.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:29:15 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (2.8ms)
+  Rendered requisitions/edit.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: syntax error, unexpected ','
+end=( f.number_field :income,, :required => true, :class => 
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: Can't assign to true
+d :income,, :required => true, :class => "form-control" );@o
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+, :required => true, :class => "form-control" );@output_buff
+                              ^):
+  
+app/views/requisitions/_form.html.erb:39: syntax error, unexpected ','
+app/views/requisitions/_form.html.erb:39: Can't assign to true
+app/views/requisitions/_form.html.erb:39: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/requisitions/edit.html.erb:11:in `_app_views_requisitions_edit_html_erb__3559103812110640473_70037847137500'
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:29:17 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  Rendered requisitions/_form.html.erb (2.3ms)
+  Rendered requisitions/edit.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: syntax error, unexpected ','
+end=( f.number_field :income,, :required => true, :class => 
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: Can't assign to true
+d :income,, :required => true, :class => "form-control" );@o
+                              ^
+/home/alfredo/Documentos/Yo-te-presto/app/views/requisitions/_form.html.erb:39: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+, :required => true, :class => "form-control" );@output_buff
+                              ^):
+  
+app/views/requisitions/_form.html.erb:39: syntax error, unexpected ','
+app/views/requisitions/_form.html.erb:39: Can't assign to true
+app/views/requisitions/_form.html.erb:39: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/views/requisitions/edit.html.erb:11:in `_app_views_requisitions_edit_html_erb__3559103812110640473_70037842512080'
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:29:52 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (14.9ms)
+  Rendered requisitions/edit.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 76ms (Views: 73.9ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/requisitions/4" for 127.0.0.1 at 2017-08-19 19:30:04 -0500
+Processing by RequisitionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t49hDFNlhHG+UH8Lm0WsOawy6B6ntqEsIbJpAaHMl8n3A+RbFF8LuaFnDP6URkV48cVj4X0zO0+JbMnyLDWBEg==", "requisition"=>{"requested_amount"=>"10001.0", "comment"=>"pro que puedo", "income"=>"213123123.0", "profile_id"=>"12", "dependents_number"=>"15", "has_sgmm"=>"1", "has_imss"=>"0", "has_car"=>"0", "company_name"=>"1231", "company_phone_number"=>"sadsad", "bank"=>"5345345"}, "requisition_marital_status"=>"Soltero", "requisition_address_years"=>"De 3 a 6 meses", "requisition_company_position"=>"Empleado", "requisition_company_years"=>"De 3 a 6 meses", "requisition_payment_terms"=>"De 3 a 6 meses", "button"=>"", "id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (25.5ms)[0m  [1m[33mUPDATE "requisitions" SET "company_phone_number" = $1, "updated_at" = $2 WHERE "requisitions"."id" = $3[0m  [["company_phone_number", "sadsad"], ["updated_at", "2017-08-20 00:30:04.216429"], ["id", 4]]
+  [1m[35m (13.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/requisitions/4
+Completed 302 Found in 466ms (ActiveRecord: 39.2ms)
+
+
+Started GET "/requisitions/4" for 127.0.0.1 at 2017-08-19 19:30:04 -0500
+Processing by RequisitionsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.2ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/show.html.erb within layouts/application
+  Rendered requisitions/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 98ms (Views: 71.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/requisitions/4/edit" for 127.0.0.1 at 2017-08-19 19:30:58 -0500
+Processing by RequisitionsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRequisition Load (0.3ms)[0m  [1m[34mSELECT  "requisitions".* FROM "requisitions" WHERE "requisitions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering requisitions/edit.html.erb within layouts/application
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."id" = $1 ORDER BY "profiles"."id" ASC LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered requisitions/_form.html.erb (9.8ms)
+  Rendered requisitions/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 79ms (Views: 76.1ms | ActiveRecord: 0.8ms)
+
+

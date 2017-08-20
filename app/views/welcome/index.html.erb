@@ -1,11 +1,139 @@
+<!-- cdn for modernizr, if you haven't included it already -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<!-- polyfiller file to detect and load polyfills -->
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+<script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+</script>
 
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<div class="col-md-6">
-  Hola
-</div>
-<div class="col-md-6">
-  simon
-</div>
+<style media="screen">
+  body{
+    background-image: url(<%= asset_path 'greenbg.jpg' %>);
+  }
+</style>
+<div class="container">
+  <div class="row" style="text-align:center">
+    <h3 style="color:white">Bienvenido <%= current_profile.name %></h3>
+    <h4 style="color:white">Para continuar con tu registro debes de terminar de llenar tus datos</h4>
+    <hr>
+  </div>
+  <div class="row">
+    <%= form_for(current_profile, :html => { :class => "form-horizontal" }) do |f| %>
+    <% if current_profile.errors.any? %>
+    <div id="error_explanation">
+      <% if @profile.errors.count == 1 %>
+      <h5><%= t("activerecord.errors.template.header.one", model: t("activerecord.models.profile")) %></h5>
+      <% else %>
+      <h5><%= t("activerecord.errors.template.header.other", model: t("activerecord.models.profile"), :count => @profile.errors.count) %></h5>
+      <% end %>
+      <ul>
+        <% current_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
+    <!-- begin col-md-6 -->
+    <div class="col-md-6">
+                  <div class="form-group">
+              <%= f.label "Primer Nombre", :class => "col-md-3" %>
+              <div class="col-md-9">
+                <%= f.text_field :first_name, :class => "form-control", :required => true %>
+              </div>
+            </div>
+                      <div class="form-group">
+              <%= f.label "Segundo Nombre", :class => "col-md-3" %>
+              <div class="col-md-9">
+                <%= f.text_field :second_name, :class => "form-control" %>
+              </div>
+            </div>
+                      <div class="form-group">
+              <%= f.label "Apellido Materno", :class => "col-md-3" %>
+              <div class="col-md-9">
+                <%= f.text_field :second_last_name, :class => "form-control", :required => true %>
+              </div>
+            </div>
+                      <div class="form-group">
+              <%= f.label "Apellido Paterno", :class => "col-md-3" %>
+              <div class="col-md-9">
+                <%= f.text_field :first_last_name, :class => "form-control", :required => true %>
+              </div>
+            </div>
+                      <div class="form-group">
+              <%= f.label "Fecha de nacimiento", :class => "col-md-3" %>
+              <div class="col-md-9">
+                <%= f.date_select :birth_date, :class => "form-control", :required => true %>
+              </div>
+            </div>
+
+          </div>
+    <!-- end col-md-6 -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label "Telefono", :class => "col-md-3" %>
+        <div class="col-md-9">
+          <%= f.phone_field :phone_number, :class => "form-control", :required => true %>
+        </div>
+      </div>
+      <div class="form-group">
+      <%= f.label "CURP", :class => "col-md-3" %>
+        <div class="col-md-9">
+        <%= f.text_field :curp, :class => "form-control", :required => true %>
+        </div>
+        </div>
+              <div class="form-group">
+        <%= f.label "RFC", :class => "col-md-3" %>
+        <div class="col-md-9">
+        <%= f.text_field :rfc, :class => "form-control", :required => true %>
+        </div>
+        </div>
+              <div class="form-group">
+        <%= f.label "Genero", :class => "col-md-3" %>
+        <div class="col-md-9">
+        <%= f.text_field :gender, :class => "form-control", :required => true %>
+        </div>
+        </div>
+              <div class="form-group">
+        <%= f.label "Estado civil", :class => "col-md-3" %>
+        <div class="col-md-9">
+        <%= f.text_field :birth_state, :class => "form-control", :required => true %>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <div class="col-md-12 text-center">
+          <%= f.button :class => "submit btn btn-success", :data => { :disable_with => t("actions.saving") } do %>
+          <i class='icon-ok'></i>
+          Guardar
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>
 <%= current_profile.email %>
+<script type="text/javascript">
+           $(function () {
+               $("#profile_phone_number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A, Command+A
+            (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+             // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+           });
+       </script>

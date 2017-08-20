@@ -1,0 +1,174 @@
+<%= form_for(@requisition, :html => { :class => "form-horizontal" }) do |f| %>
+<% if @requisition.errors.any? %>
+<div id="error_explanation">
+  <% if @requisition.errors.count == 1 %>
+  <h5><%= t("activerecord.errors.template.header.one", model: t("activerecord.models.requisition")) %></h5>
+  <% else %>
+  <h5><%= t("activerecord.errors.template.header.other", model: t("activerecord.models.requisition"), :count => @requisition.errors.count) %></h5>
+  <% end %>
+  <ul>
+    <% @requisition.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- begin col-md-6 -->
+<div class="col-md-4">
+  <h4>Detalles de tu solicitud</h4><hr>
+  <div class="form-group">
+    <%= f.label "Cantidad Solicitada", :class => "col-md-3" %>
+    <div class="col-md-9">
+    <%= f.number_field :requested_amount, :min => 10000, :class => "form-control", :required => true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "Detalle de la solicitud", :class => "col-md-3" %>
+    <div class="col-md-9">
+    <%= f.text_area :comment, placeholder: "Escribe el por que necesitas el prestamo, explicanos tu necesidad para poder atenderte mejor", rows: 10, :class => "form-control" , :required => true %>
+  </div>
+</div>
+
+</div>
+<div class="col-md-4">
+  <h4>Detalles economicos</h4><hr>
+  <div class="form-group">
+    <%= f.label "Ingresos Mensuales", :class => "col-md-7" %>
+    <div class="col-md-5">
+      <%= f.number_field :income, :required => true, :class => "form-control" %>
+      <%= f.hidden_field :profile_id, :value => current_profile.id, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "Estado civil", :class => "col-md-3" %>
+    <div class="col-md-9">
+      <select class="form-control" name="requisition_marital_status" required>
+        <option value="Soltero">Soltero</option>
+        <option value="Soltero">Casado</option>
+        <option value="Soltero">Divorciado</option>
+        <option value="Soltero">Viudo</option>
+        <option value="Soltero">Union Libre</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "Número de dependientes economicos", :class => "col-md-8" %>
+  <div class="col-md-4">
+    <%= f.number_field :dependents_number, max: 15, min: 0, :class => "form-control" , :required => true %>
+  </div>
+</div>
+<hr>
+  <h5>Selecciona las casillas segun los servicios y prestaciones con las que cuentas.</h5>
+  <hr>
+  <div class="form-group">
+      <%= f.label "Tengo Seguro de Gastos Mayores", :class => "col-md-8" %>
+    <div class="col-md-4">
+      <%= f.check_box :has_sgmm, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label "Estoy registrado en IMSS", :class => "col-md-8" %>
+    <div class="col-md-4">
+      <%= f.check_box :has_imss, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label "Tengo Automovil", :class => "col-md-8" %>
+    <div class="col-md-4">
+      <%= f.check_box :has_car, :class => "form-control" %>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+        <h4>Detalles laborales</h4><hr>
+        <div class="form-group">
+          <%= f.label "Tiempo viviendo en su domicilio", :class => "col-md-7" %>
+          <div class="col-md-5">
+            <select class="form-control" name="requisition_address_years" required>
+              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+              <option value="De 6 a 9 meses">De 6 a 9 meses</option>
+              <option value="De 9 a 12 meses">De 9 a 12 meses</option>
+              <option value="De 1 a 2 años">De 1 a 2 años</option>
+              <option value="De 2 a 3 años">De 2 a 3 años</option>
+              <option value="De 3 0 mas años">De 3 o mas años</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "Posicion laboral", :class => "col-md-5" %>
+          <div class="col-md-7">
+            <select class="form-control" name="requisition_company_position" required>
+              <option value="Empleado">Empleado</option>
+              <option value="Supervisor">Tecnico</option>
+              <option value="Supervisor">Supervisor</option>
+              <option value="Gerente">Gerente</option>
+              <option value="Socio">Socio</option>
+              <option value="Emprendedor">Emprendedor</option>
+              <option value="Desempleado">Desempleado</option>
+              <option value="Jubilado">Jubilado</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Nombre de la compañia", :class => "col-md-5" %>
+          <div class="col-md-7">
+            <%= f.text_field :company_name, :class => "form-control" , :required => true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label "Numero de telefono de la compañia", :class => "col-md-5" %>
+          <div class="col-md-7">
+            <%= f.telephone_field :company_phone_number, :class => "form-control" , :required => true %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Tiempo trabajando en la empresa actual", :class => "col-md-7" %>
+          <div class="col-md-5">
+            <select class="form-control" name="requisition_company_years" required>
+              <option value="De 3 a 6 meses">De 3 a 6 meses</option>
+              <option value="De 6 a 9 meses">De 6 a 9 meses</option>
+              <option value="De 9 a 12 meses">De 9 a 12 meses</option>
+              <option value="De 1 a 2 años">De 1 a 2 años</option>
+              <option value="De 2 a 3 años">De 2 a 3 años</option>
+              <option value="De 3 0 mas años">De 3 o mas años</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Terminos de pago", :class => "col-md-5" %>
+          <div class="col-md-7">
+            <select class="form-control" name="requisition_payment_terms" required>
+              <option value="De 3 a 6 meses">Pago Unico</option>
+              <option value="De 6 a 9 meses">Pago a Meses</option>
+              <option value="De 9 a 12 meses">Pagos Fijos</option>
+              <option value="De 1 a 2 años">A pagos chiquitos</option>
+            </select>
+          </div>
+        </div>
+                  <div class="form-group">
+          <%= f.label "Banco", :class => "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :bank, :class => "form-control" , :required => true %>
+          </div>
+        </div>
+      </div>
+<!-- end col-md-6 -->
+  <div class="clearfix">
+
+  </div><hr>
+<div class="col-md-12">
+  <div class="form-group">
+    <div class="col-md-12 text-center">
+      <%= f.button :class => "submit btn btn-success", :data => { :disable_with => t("actions.saving") } do %>
+      <i class='icon-ok'></i>
+      Crear Peticion
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

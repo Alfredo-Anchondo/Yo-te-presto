@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819162246) do
+ActiveRecord::Schema.define(version: 20170819224040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,4 +46,26 @@ ActiveRecord::Schema.define(version: 20170819162246) do
     t.index ["reset_password_token"], name: "index_profiles_on_reset_password_token", unique: true
   end
 
+  create_table "requisitions", force: :cascade do |t|
+    t.decimal "income"
+    t.integer "address_years"
+    t.integer "company_years"
+    t.string "marital_status"
+    t.decimal "requested_amount"
+    t.string "payment_terms"
+    t.string "bank"
+    t.string "comment"
+    t.string "company_name"
+    t.string "company_phone_number"
+    t.integer "dependents_number"
+    t.string "company_position"
+    t.boolean "has_sgmm"
+    t.boolean "has_imss"
+    t.boolean "has_car"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "profile_id"
+  end
+
+  add_foreign_key "requisitions", "profiles"
 end

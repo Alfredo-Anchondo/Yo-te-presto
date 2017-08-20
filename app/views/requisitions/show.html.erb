@@ -1,0 +1,150 @@
+<!-- begin row -->
+<div class="row">
+  <!-- begin col-md-12 -->
+  <div class="col-md-12">
+    <div class="invoice">
+      <div class="invoice-content">
+        <div class="table-responsive">
+          <table class="table table-invoice">
+            <thead>
+              <tr>
+                <td colspan="2">
+                  <h4><%= t("details_of", model: t("activerecord.models.requisition").downcase) %></h4>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.income") %>: <br />
+                    <small><%= @requisition.income %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.address_years") %>: <br />
+                    <small><%= @requisition.address_years %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.company_years") %>: <br />
+                    <small><%= @requisition.company_years %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.marital_status") %>: <br />
+                    <small><%= @requisition.marital_status %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.requested_amount") %>: <br />
+                    <small><%= @requisition.requested_amount %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.payment_terms") %>: <br />
+                    <small><%= @requisition.payment_terms %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.bank") %>: <br />
+                    <small><%= @requisition.bank %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.comment") %>: <br />
+                    <small><%= @requisition.comment %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.company_name") %>: <br />
+                    <small><%= @requisition.company_name %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.company_phone_number") %>: <br />
+                    <small><%= @requisition.company_phone_number %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.dependents_number") %>: <br />
+                    <small><%= @requisition.dependents_number %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.company_position") %>: <br />
+                    <small><%= @requisition.company_position %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.has_sgmm") %>: <br />
+                    <small><%= @requisition.has_sgmm %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.has_imss") %>: <br />
+                    <small><%= @requisition.has_imss %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.has_car") %>: <br />
+                    <small><%= @requisition.has_car %></small>
+                  </td>
+                </tr>
+                              <tr>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.created_at") %>: <br />
+                    <small><%= @requisition.created_at %></small>
+                  </td>
+                  <td>
+                    <%= t("activerecord.attributes.requisition.profile_id") %>: <br />
+                    <small><%= @requisition.profile_id %></small>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="invoice-footer text-muted"></div>
+    </div>
+  </div>
+  <!-- end col-md-12 -->
+</div>
+<!-- end row -->
+
+<!-- begin row -->
+<div class="row">
+  <div class="col-md-12">
+
+      <%= link_to edit_requisition_path(@requisition), :class => "btn btn-default" do %>
+        <i class="icon-pencil"></i>
+        <%= t("actions.edit") %>
+      <% end %>
+
+      <%= link_to @requisition, method: :delete, data: { confirm: t("are_you_sure?", model: t("activerecord.models.requisition").downcase) }, :class => "btn btn-danger" do %>
+        <i class="icon-trash"></i>
+        <%= t("actions.delete") %>
+      <% end %>
+
+      <%= link_to requisitions_path, :class => "btn btn-default" do %>
+        <i class="icon-chevron-left"></i>
+        <%= t("actions.back") %>
+      <% end %>
+
+  </div>
+  <!-- end col-12 -->
+</div>
+<!-- end row -->
